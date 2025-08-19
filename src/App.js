@@ -1,13 +1,73 @@
 // rule of thumb, best practice for arrays or data sets in cases like filtering is immunity, which means don't modify the original array if you want to add or remove something, create a new one
 import './App.css';
-import { Component } from 'react';
 import CardList from './components/card-list/card-list.component';
 import SearchBox from './components/search-box/search-box.component';
+
+/******************************************** Functional component app */
+import { useState, useEffect } from 'react'; // this is the equivilant to import components for the classes
+
+const App = () =>{
+
+  const [searchField,setSearchField] = useState(''); // [value,setValue]
+  console.log({searchField});
+  const [monsters, setMonsters] = useState([]);
+  const [filteredMonsters,setFilterMonsters]= useState(monsters);
+
+  useEffect (()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then( (response)=>response.json())
+    .then((users) => setMonsters(users));
+
+  },[]); // notice the empty array here, it's empty cause we don't want ever to trigger the fetch again after the first time, this is to not make the website crash from rendering in infinit loop if I didn't use the useEffect()
+
+  const onSearchChange = (event)=>{
+    const searchFieldString = event.target.value.toLocaleLowerCase();        
+    setSearchField(searchFieldString);
+  }; 
+
+  useEffect( ()=>{
+    const newFilteredMonsters = monsters.filter((monster)=>{ // created a new array for immunity
+      return monster.name.toLocaleLowerCase().includes(searchField);
+    });
+    setFilterMonsters(newFilteredMonsters);
+  } ,[monsters,searchField]);
+  
+
+  return (
+    <div className="App">
+        <h1 className='app-title'>Monsters Rodolex</h1>
+        <SearchBox className= 'monsters-search-box' onChangeHandler ={onSearchChange} placeholder = 'search monsters'/>
+        <CardList monsters={filteredMonsters}/>
+        
+      </div> 
+  )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************* Class app , this works perfectly */
+//import { Component } from 'react';
+
 // what is the order for each component or part of the code to run?
 // 1. constructor, this is the first thing that get executed in any and all classes
 // 2. render, this run second as it determin what will be displayed to the user
 // 3. for this code, the third will be componentDidMount() function 
-class App extends Component {
+/*class App extends Component {
   constructor(){ // here, this means when the app is one, this is the first thing that get run
     super();
     // I want to initiate a state
@@ -50,12 +110,12 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Monsters Rodolex</h1>
         <SearchBox className= 'monsters-search-box' onChangeHandler ={onSearchChange} placeholder = 'search monsters'/>
-        <CardList monsters={filteredMonsters}/> {/* note here that the components I make have to have Capital latter at the beggining*/}
+        <CardList monsters={filteredMonsters}/> {/* note here that the components I make have to have Capital latter at the beggining*//*}
         
       </div> 
     );
   }
   
-}
+} */
 
 export default App;
