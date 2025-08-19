@@ -2,6 +2,7 @@
 import './App.css';
 import CardList from './components/card-list/card-list.component';
 import SearchBox from './components/search-box/search-box.component';
+import BackgroundEffects from './components/BackgroundEffects';
 
 /******************************************** Functional component app */
 import { useState, useEffect } from 'react'; // this is the equivilant to import components for the classes
@@ -35,6 +36,7 @@ const App = () =>{
 
   return (
     <div className="App">
+        <BackgroundEffects />
         <h1 className='app-title'>Monsters Rodolex</h1>
         <SearchBox className= 'monsters-search-box' onChangeHandler ={onSearchChange} placeholder = 'search monsters'/>
         <CardList monsters={filteredMonsters}/>
