@@ -12,11 +12,12 @@ I also gave it a modern design so it looks fresh and fun ✨.
 - 🎨 **Modern UI design** with gradients, animations, and hover interactions  
 - ⚡ Built with **React functional components** and **props/state management**  
 
----
+---  
 
-## 🖼️ Preview  
+## 🎥 Demo  
 
-![Monsters Rolodex Screenrecord](https://drive.google.com/file/d/1oTf6lS9urfg0WbYAGzK11_NECrcIsSf9/view?usp=sharing)  
+Check out the app in action here:  
+[▶️ Watch the Demo Video](https://drive.google.com/file/d/1oTf6lS9urfg0WbYAGzK11_NECrcIsSf9/view?usp=sharing)  
 
 ---
 
