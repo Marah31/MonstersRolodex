@@ -16,7 +16,7 @@ I also gave it a modern design so it looks fresh and fun ✨.
 
 ## 🖼️ Preview  
 
-![Monsters Rolodex Screenshot](./Monster-Rolodex.mp4)  
+![Monsters Rolodex Screenrecord](https://drive.google.com/file/d/1oTf6lS9urfg0WbYAGzK11_NECrcIsSf9/view?usp=sharing)  
 
 ---
 
